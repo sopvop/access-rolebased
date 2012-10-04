@@ -8,10 +8,10 @@ import           Control.Monad
 import           Control.Monad.Logic
 import           Control.Monad.Reader
 import           Control.Monad.State.Lazy
-import           Data.HashMap.Strict (HashMap)
-import qualified Data.HashMap.Strict as M
-import           Data.Maybe (fromMaybe, isJust)
-import           Data.Text (Text)
+import           Data.HashMap.Strict      (HashMap)
+import qualified Data.HashMap.Strict      as M
+import           Data.Maybe               (fromMaybe, isJust)
+import           Data.Text                (Text)
 ------------------------------------------------------------------------------
 import           Control.Access.RoleBased.Internal.RoleMap (RoleMap)
 import qualified Control.Access.RoleBased.Internal.RoleMap as RM

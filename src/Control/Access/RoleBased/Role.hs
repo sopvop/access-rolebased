@@ -1,9 +1,9 @@
 module Control.Access.RoleBased.Role where
 
 ------------------------------------------------------------------------------
-import qualified Data.HashMap.Strict as M
 import           Control.Access.RoleBased.Internal.Types
-import           Data.Text (Text)
+import qualified Data.HashMap.Strict                     as M
+import           Data.Text                               (Text)
 
 
 ------------------------------------------------------------------------------
@@ -23,3 +23,6 @@ matches (Role a1 d1) (Role a2 d2) =
 ------------------------------------------------------------------------------
 addRoleData :: Text -> RoleValue -> Role -> Role
 addRoleData k v (Role n d) = Role n $ M.insert k v d
+
+simpleRole :: Text -> Role
+simpleRole n = Role n M.empty
