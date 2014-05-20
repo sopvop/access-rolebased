@@ -26,11 +26,11 @@ instance IsString RoleValue where
 
 ------------------------------------------------------------------------------
 instance Hashable RoleValue where
-    hashWithSalt salt (RoleBool e)   = salt `hashWithSalt` (7::Int) `hashWithSalt` e
-    hashWithSalt salt (RoleText t)   = salt `hashWithSalt` (196613::Int) `hashWithSalt` t
-    hashWithSalt salt (RoleInt i)    = salt `hashWithSalt` (12582917::Int) `hashWithSalt` i
+    hashWithSalt salt (RoleBool e)   = salt `hashWithSalt` e `hashWithSalt` (1::Int)
+    hashWithSalt salt (RoleText t)   = salt `hashWithSalt` t `hashWithSalt` (2::Int)
+    hashWithSalt salt (RoleInt i)    = salt `hashWithSalt` (3::Int) `hashWithSalt` i
     hashWithSalt salt (RoleDouble d) =
-      salt `hashWithSalt` (1610612741::Int) `hashWithSalt` d
+        salt `hashWithSalt` (4::Int) `hashWithSalt` d
 
 
 ------------------------------------------------------------------------------
