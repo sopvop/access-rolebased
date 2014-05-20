@@ -3,11 +3,11 @@ module Control.Access.RoleBased.Internal.Role where
 ------------------------------------------------------------------------------
 import           Control.Monad.ST
 import           Data.Hashable
-import           Data.HashMap.Strict (HashMap)
-import qualified Data.HashMap.Strict as M
+import           Data.HashMap.Strict          (HashMap)
+import qualified Data.HashMap.Strict          as M
 import           Data.String
-import           Data.Text (Text)
-import qualified Data.Vector as V
+import           Data.Text                    (Text)
+import qualified Data.Vector                  as V
 import qualified Data.Vector.Algorithms.Merge as VA
 
 
@@ -26,11 +26,11 @@ instance IsString RoleValue where
 
 ------------------------------------------------------------------------------
 instance Hashable RoleValue where
-    hashWithSalt salt (RoleBool e)   = hashWithSalt salt e `combine` 7
-    hashWithSalt salt (RoleText t)   = hashWithSalt salt t `combine` 196613
-    hashWithSalt salt (RoleInt i)    = hashWithSalt salt i `combine` 12582917
+    hashWithSalt salt (RoleBool e)   = salt `hashWithSalt` (7::Int) `hashWithSalt` e
+    hashWithSalt salt (RoleText t)   = salt `hashWithSalt` (196613::Int) `hashWithSalt` t
+    hashWithSalt salt (RoleInt i)    = salt `hashWithSalt` (12582917::Int) `hashWithSalt` i
     hashWithSalt salt (RoleDouble d) =
-        hashWithSalt salt d `combine` 1610612741
+      salt `hashWithSalt` (1610612741::Int) `hashWithSalt` d
 
 
 ------------------------------------------------------------------------------
